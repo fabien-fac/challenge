@@ -1,6 +1,7 @@
 package projetandroid.m2dl.com.chanllenge;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -20,10 +21,11 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import projetandroid.m2dl.com.chanllenge.fragments.BlankFragment;
+import projetandroid.m2dl.com.chanllenge.fragments.HomeFragment;
 
 
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks, BlankFragment.OnFragmentInteractionListener {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, BlankFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -59,12 +61,9 @@ public class MainActivity extends ActionBarActivity
 
         switch (position){
             case 0:
-                fragment = new BlankFragment();
+                fragment = new HomeFragment();
                 break;
             case 1:
-                fragment = new BlankFragment();
-                break;
-            case 2:
                 fragment = new BlankFragment();
                 break;
 
@@ -115,5 +114,10 @@ public class MainActivity extends ActionBarActivity
     }
 
 
+    public void launchGame(View view){
+
+        Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
+    }
 
 }
